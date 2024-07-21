@@ -1,0 +1,61 @@
+.loginBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-logo {
+    width: 200px;
+    height: auto;
+    margin-top: 15vw;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.id {
+    width: 300px;
+    height: 35px;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 10px;
+    background-color: #f5f7fa;
+    margin-top: 30px;
+}
+
+.id::placeholder {
+    color: #a0a0a0;
+}
+
+.pwd {
+    width: 300px;
+    height: 35px;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 10px;
+    background-color: #f5f7fa;
+    margin-top: 30px;
+}
+
+.pwd::placeholder {
+    color: #a0a0a0;
+}
+
+.loginBtn {
+    width: 320px;
+    height: 45px;
+    border: none;
+    border-radius: 15px;
+    font-weight: bolder;
+    background: linear-gradient(#feb452, #fe9323);
+    margin-top: 80px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.ToSignup {
+    color: black;
+    margin-top: 30px;
+}

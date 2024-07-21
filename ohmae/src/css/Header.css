@@ -1,0 +1,25 @@
+.HeaderBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.bell {
+    width: 30px;
+    height: auto;
+}
+
+.header-logo {
+    width: 100px;
+    height: auto;
+}
+
+.ham {
+    width: 30px;
+    height: auto;
+}

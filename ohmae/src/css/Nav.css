@@ -1,0 +1,27 @@
+.NavBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 8vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid gray;
+}
+
+.ref {
+    width: 30px;
+    height: auto;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+}
+
+.person {
+    width: 20px;
+    height: auto;
+}
