@@ -1,14 +1,15 @@
-.page {
+.mypage_page {
     display: flex;
     flex-direction: column;
     justify-content: flex-start; 
     align-items: center;
     height: 100vh;
     padding-top: 16vh;
+    overflow: hidden;
 }
 
-/* mypageBox */
-.mypageBox {
+/* mypage_box */
+.mypage_box {
     width: 75%;
     height: 20%;
     display: flex;
@@ -17,7 +18,7 @@
     box-shadow: 0 2px 5px rgba(201, 201, 201, 0.7);
 }
 
-.name {
+.mypage_name {
     display: flex;
     justify-content: space-between;
     padding: 15px 15px 1px 15px;
@@ -25,7 +26,7 @@
     font-family: "Pretendard-Bold";
 }
 
-.filter {
+.mypage_filter {
     display: inline-block;
     color: #EA512F;
     border: solid 1px #EA512F;
@@ -37,17 +38,17 @@
     margin-bottom: 13px;
 }
 
-.title {
+.mypage_title {
     font-size: 12px;
 }
 
-.content {
+.mypage_content {
     font-size: 14px;
     font-family: "Pretendard-Bold";
     margin-left: 10px;
 }
 
-.infoRow {
+.mypage_info_row {
     margin-left: 15px; 
     width: 80%;
     display: flex;
@@ -56,29 +57,28 @@
     margin-top: 13px;
 }
 
-.infoItem1 {
+.mypage_info_item1 {
     display: flex;
     width: 80px;
     justify-content: flex-start;
 }
 
-.infoItem2 {
+.mypage_info_item2 {
     display: flex;
     width: 120px;
     margin-left: 10px;
     justify-content: flex-start;
 }
 
-
-/* mypageList */
-.mypageList {
+/* mypage_list */
+.mypage_list {
     display: flex;
     justify-content: space-between;
     width: 75%;
     margin-top: 30px; 
 }
 
-.box1, .box2, .box3 {
+.mypage_box1, .mypage_box2, .mypage_box3 {
     display: flex;
     flex-direction: column; 
     align-items: center; 
@@ -93,7 +93,7 @@
     font-size: 14px;
 }
 
-.myRecipe, .myRefrigerator, .myReview {
+.mypage_recipe, .mypage_refrigerator, .mypage_review {
     width: 30%;
     height: auto;
     position: absolute;
@@ -102,9 +102,8 @@
     transform: translate(-50%, -50%);
 }
 
-
-/* mypageNotion */
-.mypageNotion {
+/* mypage_notion */
+.mypage_mypageNotion {
     display: flex; 
     flex-direction: column; 
     align-items: flex-start; 
@@ -113,10 +112,8 @@
     margin-left: 13%; 
 }
 
-
-.mypageNotion p {
+.mypage_mypageNotion p {
     margin: 10px 0; 
     font-size: 14px; 
     color: #8f8d8d; 
-    
 }
