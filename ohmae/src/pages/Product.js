@@ -12,10 +12,11 @@ const Product = () => {
          <div style={{fontSize: "20px"}}>🔥핫딜특가🔥</div>
         </div>
 
-
+        <div className="productItem">
         <ProductItem />
         <ProductItem />
         <ProductItem />
+        </div>
        
     </div>
 }
