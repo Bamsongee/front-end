@@ -1,12 +1,21 @@
 
-.intro {
+.Product .intro {
     text-align: center;
     margin-top: 100px;
 }
 
-.productItem {
+.Product .forWho {
+    color: #FF7A00;
+}
+
+.Product .hatdeal {
+    font-size: 20px;
+}
+
+.Product .productItem {
     display: flex;
     flex-direction: column;
     align-items: center; 
     margin-top: 20px;
+    gap: 10px;
 }
