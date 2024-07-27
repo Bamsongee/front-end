@@ -8,6 +8,7 @@ import Signup from "./pages/Signup";
 import Product from "./pages/Product";
 import Info from "./pages/Info";
 import Mypage from "./pages/mypage";
+import RecipeDetail from "./pages/RecipeDetail";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                     <Route exact path="/products" element={<Product />} />
                     <Route exact path="/mypage" element={<Mypage />} />
                     <Route exact path="/info" element={<Info />} />
+                    <Route path="/recipe/:id" element={<RecipeDetail />} />
                 </Routes>
             </BrowserRouter>
         </div>
