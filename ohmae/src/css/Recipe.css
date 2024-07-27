@@ -1,0 +1,72 @@
+.Recipe {
+    width: 420px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px
+    
+}
+
+.Recipe .foodImg {
+    width: 100%;
+}
+
+.Recipe .recipeCategory {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px
+}
+
+.Recipe .recipeMain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.Recipe .recipeTitle {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.Recipe .heart img{
+    width: 30px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.Recipe hr {
+    border: 1px solid rgb(235, 233, 233);
+    width: 100%;
+}
+
+.Recipe .recipeSubTitle {
+    font-weight: bold;
+}
+
+.Recipe .ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 5px;
+    width: 100%;
+    margin: 10px 0px 0px 0px;
+    padding: 10px 10px 0px 10px;
+}
+
+.Recipe .ingredients li, .order li{
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.Recipe .order {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 0px 10px;
+    gap: 5px;
+    width: 100%;
+    margin: 10px 0px 0px 0px;
+}

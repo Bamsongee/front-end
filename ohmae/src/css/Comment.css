@@ -1,0 +1,12 @@
+.Comment {
+    width: 420px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Comment .commentTitle {
+    font-weight: bold;
+    font-size: 20px;
+}
