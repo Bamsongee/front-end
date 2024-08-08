@@ -4,9 +4,11 @@
     justify-content: space-around;
     align-items: center;
     width: 100vw;
+    height: 75px;
     position: fixed;
     top: 0;
     left: 0;
+    background-color: #ffffff;
 }
 
 .bell {
