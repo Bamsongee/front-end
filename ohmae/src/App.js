@@ -7,7 +7,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Product from "./pages/Product";
 import Info from "./pages/Info";
-import Mypage from "./pages/mypage";
+import Mypage from "./pages/Mypage";
+import Refrigerator from "./pages/Refrigerator";
 import RecipeDetail from "./pages/RecipeDetail";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                     <Route exact path="/signup" element={<Signup />} />
                     <Route exact path="/products" element={<Product />} />
                     <Route exact path="/mypage" element={<Mypage />} />
+                    <Route exact path="/refrigerator" element={<Refrigerator />} />
                     <Route exact path="/info" element={<Info />} />
                     <Route path="/recipe/:id" element={<RecipeDetail />} />
                 </Routes>

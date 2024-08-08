@@ -8,7 +8,9 @@ import Person from "../img/NavPerson.png";
 function Nav() {
     return (
         <div className="NavBox">
-            <img className="ref" src={Ref} alt="Reference" />
+            <Link to="/refrigerator">
+                <img className="ref" src={Ref} alt="Reference" />
+            </Link>
             <Link to="/main"> 
                 <img className="logo" src={NavLogo} alt="Logo" />
             </Link>
