@@ -2,8 +2,8 @@ import "../css/ProductItem.css";
 
 const ProductItem = () => {
     return (
-        <div>
-            <div className="pageItem">
+
+            <div className="ProductItem">
                 <div className="img">
                     <img
                         src={
@@ -18,7 +18,6 @@ const ProductItem = () => {
                     <div className="discounted-price">5,400원</div>
                 </div>
             </div>
-        </div>
     );
 };
 

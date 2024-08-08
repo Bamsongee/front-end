@@ -1,4 +1,4 @@
-import "../css/Product.css";
+import "./../css/Product.css";
 import Header from "../components/Header";
 import Nav from "../components/Nav";
 import ProductItem from "../components/ProductItem";
