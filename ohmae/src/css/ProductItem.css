@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .pageItem {
     width: 290px;
     padding: 5px;
@@ -11,8 +10,6 @@
     align-items: center;
 }
 
-.img img {
-=======
 .ProductItem {
     width: 450px;
     border-radius: 20px;
@@ -31,12 +28,11 @@
 }
 
 .ProductItem .img img {
->>>>>>> b7773c4dad573ca83ddd5c57f4ba58e5ea754c9c
     width: 100px;
     height: 100px;
     object-fit: cover;
     border-radius: 10px;
-    display: block; 
+    display: block;
 }
 
 .ProductItem .details {

@@ -1,0 +1,37 @@
+.CustomBox {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.DetailPage-title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px 0px 20px 0px;
+}
+
+.DetailPage-title-des {
+    color: #ff7a00;
+    font-weight: bolder;
+    font-size: small;
+}
+
+.DetailPage-title-name {
+    font-weight: bolder;
+    font-size: large;
+}
+
+.DetailPage-contents {
+    display: grid;
+    grid-template-columns: repeat(2, 170px);
+    grid-template-rows: 160px;
+    justify-content: center;
+    row-gap: 20px;
+    column-gap: 15px;
+}

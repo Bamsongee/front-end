@@ -10,6 +10,10 @@ import Info from "./pages/Info";
 import Mypage from "./pages/Mypage";
 import Refrigerator from "./pages/Refrigerator";
 import RecipeDetail from "./pages/RecipeDetail";
+import Custom from "./pages/Custom";
+import IngredientRecipe from "./pages/IngredientRecipe";
+import Save from "./pages/Save";
+import Search from "./pages/Search";
 
 function App() {
     return (
@@ -18,6 +22,10 @@ function App() {
                 <Routes>
                     <Route exact path="/" element={<Splash />} />
                     <Route exact path="/main" element={<Main />} />
+                    <Route exact path="/custom" element={<Custom />} />
+                    <Route exact path="/ing-recipe" element={<IngredientRecipe />} />
+                    <Route exact path="/save" element={<Save />} />
+                    <Route exact path="/search" element={<Search />} />
                     <Route exact path="/login" element={<Login />} />
                     <Route exact path="/signup" element={<Signup />} />
                     <Route exact path="/products" element={<Product />} />

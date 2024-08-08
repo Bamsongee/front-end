@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import { Link } from "react-router-dom";
 import "../css/RecipeItem.css";
@@ -27,17 +26,3 @@ function RecipeItem() {
 }
 
 export default RecipeItem;
-=======
-import '../css/Ingredient.css'
-
-const Ingredient = ({ ingredient }) => {
-
-    return (
-        <li className='Ingredient'>
-            {ingredient}
-        </li>
-    )
-}
-
-export default Ingredient;
->>>>>>> b7773c4dad573ca83ddd5c57f4ba58e5ea754c9c

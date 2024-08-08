@@ -52,10 +52,18 @@ function Main() {
                             </Link>
                         </div>
                         <div className="ConList">
-                            <RecipeItem></RecipeItem>
-                            <RecipeItem></RecipeItem>
-                            <RecipeItem></RecipeItem>
-                            <RecipeItem></RecipeItem>
+                            <div className="RecipeItemMargin">
+                                <RecipeItem></RecipeItem>
+                            </div>
+                            <div className="RecipeItemMargin">
+                                <RecipeItem></RecipeItem>
+                            </div>
+                            <div className="RecipeItemMargin">
+                                <RecipeItem></RecipeItem>
+                            </div>
+                            <div className="RecipeItemMargin">
+                                <RecipeItem></RecipeItem>
+                            </div>
                         </div>
                     </div>
 
@@ -82,10 +90,18 @@ function Main() {
                             </Link>
                         </div>
                         <div className="ConList">
-                            <RecipeItem></RecipeItem>
-                            <RecipeItem></RecipeItem>
-                            <RecipeItem></RecipeItem>
-                            <RecipeItem></RecipeItem>
+                            <div className="RecipeItemMargin">
+                                <RecipeItem></RecipeItem>
+                            </div>
+                            <div className="RecipeItemMargin">
+                                <RecipeItem></RecipeItem>
+                            </div>
+                            <div className="RecipeItemMargin">
+                                <RecipeItem></RecipeItem>
+                            </div>
+                            <div className="RecipeItemMargin">
+                                <RecipeItem></RecipeItem>
+                            </div>
                         </div>
                     </div>
 
@@ -94,10 +110,18 @@ function Main() {
                             <div className="ConTitleText">인기 레시피 TOP 10</div>
                         </div>
                         <div className="ConList">
-                            <RecipeItem></RecipeItem>
-                            <RecipeItem></RecipeItem>
-                            <RecipeItem></RecipeItem>
-                            <RecipeItem></RecipeItem>
+                            <div className="RecipeItemMargin">
+                                <RecipeItem></RecipeItem>
+                            </div>
+                            <div className="RecipeItemMargin">
+                                <RecipeItem></RecipeItem>
+                            </div>
+                            <div className="RecipeItemMargin">
+                                <RecipeItem></RecipeItem>
+                            </div>
+                            <div className="RecipeItemMargin">
+                                <RecipeItem></RecipeItem>
+                            </div>
                         </div>
                     </div>
                 </div>
