@@ -1,0 +1,29 @@
+.CommentItem {
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0px 0px 0px;
+    padding: 10px 10px 0px 0px;
+}
+
+.CommentItem .upper_item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.CommentItem .author {
+    color:#FE9323;
+    font-weight: bold;
+}
+
+.CommentItem .createdAt {
+    font-size: 13px;
+}
+
+.CommentItem .content {
+    font-size: 15px;
+}
+
