@@ -62,6 +62,7 @@ function Refrigerator() {
                 </div>
 
             </Modal>
+            
         </div>
     );
 }

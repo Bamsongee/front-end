@@ -70,6 +70,7 @@ function Mypage() {
                     </div>
                 </div>
             </div>
+            
             <Nav />
         </>
     );
