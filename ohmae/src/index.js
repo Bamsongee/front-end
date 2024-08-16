@@ -7,8 +7,10 @@ import App from "./App";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const basename = process.env.NODE_ENV === "production" ? "/ohmae" : "/";
+
 root.render(
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
         <CookiesProvider>
             <App />
         </CookiesProvider>
