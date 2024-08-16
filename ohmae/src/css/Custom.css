@@ -1,19 +1,18 @@
 .CustomBox {
-    width: 90%;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 5%;
-    padding-right: 5%;
+    align-items: center;
 }
 
 .DetailPage-title {
-    width: 100%;
+    width: 325px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 10px 0px 20px 0px;
+    margin: 10px 0;
 }
 
 .DetailPage-title-des {
@@ -27,11 +26,42 @@
     font-size: large;
 }
 
+.DetailPage-filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 325px;
+    margin-bottom: 15px;
+}
+
+.DetailPage-filter select {
+    margin-right: 5px;
+    color: white;
+    background: linear-gradient(to bottom, #ffa934, #ff7b01);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    outline: none;
+    padding: 5px 3px;
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.DetailPage-filter option {
+    color: black;
+    background: linear-gradient(to bottom, #ffa934, #ff7b01);
+}
+
 .DetailPage-contents {
     display: grid;
-    grid-template-columns: repeat(2, 170px);
+    grid-template-columns: repeat(2, 150px);
     grid-template-rows: 160px;
     justify-content: center;
     row-gap: 20px;
-    column-gap: 15px;
+    column-gap: 25px;
 }

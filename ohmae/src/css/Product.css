@@ -1,17 +1,13 @@
-.Product .intro {
-    text-align: center;
-    margin-top: 20px;
+.productBox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.Product .forWho {
-    color: #ff7a00;
-}
-
-.Product .hatdeal {
-    font-size: 20px;
-}
-
-.Product .productItem {
+.productBox .productItem {
     display: flex;
     flex-direction: column;
     align-items: center;

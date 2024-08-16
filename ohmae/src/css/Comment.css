@@ -1,12 +1,48 @@
 .Comment {
-    width: 420px;
-    padding: 30px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
 .Comment .commentTitle {
     font-weight: bold;
     font-size: 20px;
+}
+
+.commentItemBox {
+    margin-bottom: 70px;
+}
+
+.CommentForm {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.CommentInput {
+    width: 230px;
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 10px;
+    background-color: #ebebeb;
+    margin-top: 0px;
+}
+
+.CommentInputBtn {
+    outline: none;
+    border-radius: 15px;
+    border: none;
+    background-color: #ff7a00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+
+.CommentInputBtn img {
+    width: 18px;
+    height: auto;
 }

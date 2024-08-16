@@ -7,7 +7,7 @@ import RecipeTime from "../img/time.png";
 function RecipeItem() {
     return (
         <div className="RecipeBox">
-            <Link to="/recipedetail" className="LinkToRecipeDetail">
+            <Link to="/recipe/:id" className="LinkToRecipeDetail">
                 <img className="RecipeImg" src={RecipeImg} alt="RecipeImg" />
                 <div className="recipeInfo">
                     <div className="recipeName">두부 김치찌개</div>

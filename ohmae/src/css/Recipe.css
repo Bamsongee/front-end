@@ -1,22 +1,36 @@
 .Recipe {
-    width: 420px;
-    padding: 30px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 20px
-    
 }
 
 .Recipe .foodImg {
     width: 100%;
+    height: auto;
 }
 
 .Recipe .recipeCategory {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
-    gap: 5px
+    width: 100%;
+    margin-top: 20px;
+}
+
+.CategoryButton {
+    margin-right: 5px;
+    color: white;
+    background: linear-gradient(to bottom, #ffa934, #ff7b01);
+    border: none;
+    border-radius: 50px;
+    padding: 5px 10px;
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .Recipe .recipeMain {
@@ -24,6 +38,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin-top: 10px;
 }
 
 .Recipe .recipeTitle {
@@ -31,42 +46,42 @@
     font-weight: bold;
 }
 
-.Recipe .heart img{
+.Recipe .heart img {
     width: 30px;
+    height: auto;
     display: flex;
+    justify-content: center;
     align-items: center;
-    height: 100%;
 }
 
 .Recipe hr {
-    border: 1px solid rgb(235, 233, 233);
+    border: 1px solid #f3f3f3;
+    width: 100%;
+    margin: 30px 0;
+}
+
+.RecipeSubBox {
     width: 100%;
 }
 
 .Recipe .recipeSubTitle {
     font-weight: bold;
+    font-size: 20px;
+}
+
+.ingredientsTwoSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-right: 40px;
 }
 
 .Recipe .ingredients {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 10px;
-    gap: 5px;
-    width: 100%;
-    margin: 10px 0px 0px 0px;
-    padding: 10px 10px 0px 10px;
-}
-
-.Recipe .ingredients li, .order li{
-    width: 200px;
-    margin-bottom: 10px;
+    padding-left: 20px;
 }
 
 .Recipe .order {
-    display: flex;
-    flex-direction: column;
-    padding: 10px 10px 0px 10px;
-    gap: 5px;
-    width: 100%;
-    margin: 10px 0px 0px 0px;
+    margin: 16px 10px;
+    white-space: pre-wrap;
 }

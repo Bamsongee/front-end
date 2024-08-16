@@ -1,8 +1,3 @@
-.page {
-    padding-top: 90px;
-    padding-bottom: 90px;
-}
-
 .SearchBox {
     width: 100%;
     height: 100%;
@@ -12,13 +7,52 @@
     align-items: center;
 }
 
+.RecipeSearch2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 330px;
+}
+
+.RecipeSearchInput2 {
+    width: 260px;
+    height: 35px;
+    border: none;
+    border-radius: 15px;
+    padding: 5px 10px;
+    background-color: #f5f7fa;
+    margin-top: 0px;
+}
+
+.RecipeSearchInput2::placeholder {
+    color: #a0a0a0;
+}
+
+.RecipeSearchInputBtn {
+    outline: none;
+    border-radius: 15px;
+    border: none;
+    background-color: #ff7a00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+
+.RecipeSearchInputBtn img {
+    width: 20px;
+    height: auto;
+}
+
 .NoResultBox {
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 45%;
+    margin-top: 100px;
 }
 
 .NoResultBox img {

@@ -1,0 +1,90 @@
+.MenuBack {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    z-index: 999;
+}
+
+.MenuBox {
+    width: 200px;
+    height: 100%;
+    background-color: white;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.MenuBox::-webkit-scrollbar {
+    width: 0;
+}
+
+.MenuBox::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.hamX {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 15px;
+    height: auto;
+    cursor: pointer;
+}
+
+.hamLogo {
+    width: 150px;
+    height: auto;
+    margin-top: 60px;
+}
+
+.hamUser {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bolder;
+    margin: 20px 0 40px 0;
+}
+
+.hamBox {
+    margin: 0 0 15px 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.hamBox-category {
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-left: 5px;
+}
+
+.hamBox-Link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    border-top: 1px solid #d9d9d9;
+    padding: 10px 5px;
+}
+
+.hamBox-page {
+    font-size: 14px;
+}
+
+.HamGo {
+    width: 7px;
+    height: auto;
+}

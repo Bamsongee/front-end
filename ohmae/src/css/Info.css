@@ -1,11 +1,10 @@
 .info_page {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; 
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
     height: 100%;
-    padding-top: 23vh;
-    margin-left: 13%; 
+    padding-top: 50px;
 }
 
 .info_row {
@@ -38,8 +37,8 @@
 
 .info_notice {
     display: inline-block;
-    color: #EA512F;
-    border: solid 1px #EA512F;
+    color: #ea512f;
+    border: solid 1px #ea512f;
     border-radius: 1rem;
     padding: 3px 5px;
     margin-top: 1px;
@@ -63,16 +62,14 @@
     background: linear-gradient(#feb452, #fe9323);
     margin-top: 80px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
     align-items: center;
-    margin-right: 8%;
 }
 
 .scroll {
     overflow: hidden;
 }
-
 
 /*모달창*/
 .modal_overlay {
@@ -90,9 +87,10 @@
 .modal {
     background: white;
     padding: 20px;
-    border-radius: 10px;
-    width: 400px; /* 필요에 따라 조정 */
+    border-radius: 20px;
+    width: 200px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: none;
 }
 
 .modal_skill_box {
@@ -105,30 +103,32 @@
     margin: 10px 0 0 0;
 }
 
+.info_edit_button_container {
+    margin: 10px 0;
+}
+
 .modal_info_edit_button {
     width: 320px;
     height: 45px;
     border-radius: 15px;
     font-weight: bolder;
     background: linear-gradient(#feb452, #fe9323);
-    margin-top: 80px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
     align-items: center;
-    margin-right: 8%;
     margin-top: 10px;
 }
 
 .modal_budget {
-    margin-top: 13%;
+    margin-top: 10px;
     font-size: 20px;
 }
 
 .modal_edit_budget {
     display: inline-block;
     color: #000000;
-    border: solid 1px #EA512F;
+    border: solid 1px #ea512f;
     border-radius: 1rem;
     padding: 3px 5px;
     margin-top: 1px;
@@ -137,6 +137,6 @@
 }
 
 .modal_edit_budget:focus {
-    border-color: #EA512F;
+    border-color: #ea512f;
     outline: none;
 }

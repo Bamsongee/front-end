@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "../css/Splash.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Logo from "../img/logo.png";
 
 function Splash() {
-    // Main으로 자동 넘어가기
+    // Login으로 자동 넘어가기
     const navigate = useNavigate();
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -13,6 +13,7 @@ function Splash() {
         }, 2000); // 2초 후 넘어감
         return () => clearTimeout(timer);
     }, [navigate]);
+
     return (
         <div className="splashBox">
             <img src={Logo} alt="logo" className="splash-logo"></img>

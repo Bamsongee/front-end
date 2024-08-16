@@ -2,12 +2,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .login-logo {
     width: 200px;
     height: auto;
-    margin-top: 15vw;
+    margin-top: 40px;
 }
 
 .login-form {

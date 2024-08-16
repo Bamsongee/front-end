@@ -1,9 +1,7 @@
-import { useParams } from 'react-router-dom';
-import Header from '../components/Header';
-import Nav from '../components/Nav'
-import '../css/RecipeDetail.css'
-import Recipe from '../components/Recipe';
-import Comment from '../components/Comment';
+import { useParams } from "react-router-dom";
+import "../css/RecipeDetail.css";
+import Recipe from "../components/Recipe";
+import Comment from "../components/Comment";
 
 const RecipeDetail = () => {
     const params = useParams();
@@ -11,19 +9,18 @@ const RecipeDetail = () => {
 
     return (
         <>
-            <Header />
-                <div className='RecipeDetail'>
-                <div className='recipe-box'>
-                    <Recipe />
-                </div>
-                <div className='recipe-box'>
-                    <Comment />
+            <div className="page">
+                <div className="RecipeDetailBox">
+                    <div className="recipe-box">
+                        <Recipe />
+                    </div>
+                    <div className="recipe-box">
+                        <Comment />
+                    </div>
                 </div>
             </div>
-        
-            <Nav />
         </>
-    )
-}
+    );
+};
 
 export default RecipeDetail;

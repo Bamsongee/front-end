@@ -1,25 +1,17 @@
 /* ref_page */
 .ref_page {
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    height: 100vh;
-    padding-top: 18vh;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
     width: 100%;
 }
 
-
 /* ref_box */
-.ref_name {
-    font-size: 22px; 
-    font-family: "Pretendard-Bold";
-    margin-bottom: 20px;
-    text-align: center;
-}
 
 .ref_button {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     gap: 20px;
 }
 
@@ -32,32 +24,28 @@
     font-weight: bolder;
     background: linear-gradient(#feb452, #fe9323);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
-
 
 /* ref_list */
 .ref_list {
     margin-top: 40px;
-    width: 75%;
-    height: 50%;
-    background-color: #FAFAFA;
+    background-color: #fafafa;
     display: flex;
     flex-direction: column;
     border-radius: 20px;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
+    padding: 30px 20px;
 }
 
 .ref_ingredient {
-    width: 80%;
-    max-height: 85%;
-    overflow-y: auto; 
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: 13px; 
+    gap: 13px;
     padding: 10px;
     border-radius: 20px;
 }
@@ -78,8 +66,8 @@
 .modal {
     background: white;
     padding: 20px;
-    border-radius: 10px;
-    width: 400px;
+    border-radius: 20px;
+    width: 300px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
@@ -89,7 +77,7 @@
 .modal_ing {
     margin-top: 20px;
     font-size: 20px;
-    width: 100%; 
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -98,19 +86,18 @@
 .modal_add_ing {
     display: inline-block;
     color: #000000;
-    border: solid 1px #EA512F;
+    border: solid 1px #ea512f;
     border-radius: 1rem;
     padding: 10px 15px;
     font-size: 18px;
-    width: 80%; 
-    box-sizing: border-box; 
+    width: 80%;
+    box-sizing: border-box;
     margin-bottom: 5%;
     height: 40px;
 }
 
-
 .modal_add_ing:focus {
-    border-color: #EA512F;
+    border-color: #ea512f;
     outline: none;
 }
 

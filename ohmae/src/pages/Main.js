@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../css/Main.css";
-import Nav from "../components/Nav";
-import Header from "../components/Header";
 import RecipeItem from "../components/RecipeItem";
 import FoodItem from "../components/FoodItem";
 import GoToImg from "../img/goto.png";
@@ -10,14 +8,13 @@ import GoToImg from "../img/goto.png";
 function Main() {
     return (
         <>
-            <Header></Header>
             <div className="page">
                 <div className="MainBox">
                     <form className="RecipeSearch">
                         <input
                             className="RecipeSearchInput"
                             type="text"
-                            placeholder="원하는 레시피를 검색해보세요"
+                            placeholder="원하는 레시피를 검색해보세요!"
                         ></input>
                     </form>
                     <div className="Main-My">
@@ -47,7 +44,7 @@ function Main() {
                     <div className="Container">
                         <div className="ConTitle">
                             <div className="ConTitleText">밤송이님의 맞춤 레시피</div>
-                            <Link to="">
+                            <Link to="/custom">
                                 <img className="GoToDetail" src={GoToImg} alt="GoToImg"></img>
                             </Link>
                         </div>
@@ -70,7 +67,7 @@ function Main() {
                     <div className="Container">
                         <div className="ConTitle">
                             <div className="ConTitleText">핫딜 특가 🔥</div>
-                            <Link to="">
+                            <Link to="/products">
                                 <img className="GoToDetail" src={GoToImg} alt="GoToImg"></img>
                             </Link>
                         </div>
@@ -85,7 +82,7 @@ function Main() {
                     <div className="Container">
                         <div className="ConTitle">
                             <div className="ConTitleText">만들 수 있는 레시피</div>
-                            <Link to="">
+                            <Link to="/ing-recipe">
                                 <img className="GoToDetail" src={GoToImg} alt="GoToImg"></img>
                             </Link>
                         </div>
@@ -126,7 +123,6 @@ function Main() {
                     </div>
                 </div>
             </div>
-            <Nav></Nav>
         </>
     );
 }

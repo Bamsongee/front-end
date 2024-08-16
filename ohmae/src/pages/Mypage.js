@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../css/Mypage.css";
-import Nav from "../components/Nav";
-import Header from "../components/Header";
 import Update from "../img/update.png";
 import MyRecipe from "../img/myRecipe.png";
 import MyRefrigerator from "../img/myRefrigerator.png";
@@ -11,7 +9,6 @@ import MyReview from "../img/myReview.png";
 function Mypage() {
     return (
         <>
-            <Header />
             <div className="page">
                 <div className="mypage_page">
                     <div className="mypage_box">
@@ -70,8 +67,6 @@ function Mypage() {
                     </div>
                 </div>
             </div>
-            
-            <Nav />
         </>
     );
 }

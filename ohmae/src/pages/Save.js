@@ -1,20 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../css/Save.css";
-import Nav from "../components/Nav";
-import Header from "../components/Header";
 import RecipeItem from "../components/RecipeItem";
 
 function Save() {
     return (
         <>
-            <Header></Header>
             <div className="page">
                 <div className="SaveBox">
-                    <div className="DetailPage-title">
-                        <div className="DetailPage-title-des">밤송이님이 직접 고른</div>
-                        <div className="DetailPage-title-name">찜한 레시피</div>
-                    </div>
+                    <div className="MyPageBoldTitle">내가 찜한 레시피 </div>
                     <div className="Save-CategoryContainer">
                         <div className="Save-CategoryTitle">
                             <div className="Save-CategoryTitleText">한식</div>
@@ -105,7 +99,6 @@ function Save() {
                     </div>
                 </div>
             </div>
-            <Nav></Nav>
         </>
     );
 }

@@ -2,6 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .signup-form {
@@ -110,4 +113,5 @@
     background: linear-gradient(#feb452, #fe9323);
     margin-top: 60px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: 100px;
 }

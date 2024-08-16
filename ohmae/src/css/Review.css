@@ -1,0 +1,61 @@
+.ReviewBox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.MyPageBoldTitle {
+    font-weight: bolder;
+    font-size: large;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.ReviewContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 280px;
+    height: 80px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 5px 2px rgb(128, 128, 128, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.Review-recipe {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Review-recipeName {
+    font-weight: bolder;
+    font-size: large;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.MoreRecipe {
+    width: 7px;
+    height: auto;
+}
+
+.Review-comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Review-time {
+    font-size: 12px;
+    color: #ff7a00;
+}
+
+.Review-content {
+}
