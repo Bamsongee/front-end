@@ -8,7 +8,7 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <BrowserRouter basename="/ohmae">
+    <BrowserRouter>
         <CookiesProvider>
             <App />
         </CookiesProvider>
