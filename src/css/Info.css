@@ -1,0 +1,142 @@
+.info_page {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    padding-top: 50px;
+}
+
+.info_row {
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+#info_row {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1.5%;
+}
+
+.info_title {
+    font-size: 14px;
+}
+
+.info_content {
+    font-size: 18px;
+    font-family: "Pretendard-Bold";
+    margin-left: 40px;
+    flex-grow: 1;
+}
+
+.info_edit {
+    margin-left: auto;
+    margin-right: 8%;
+}
+
+.info_notice {
+    display: inline-block;
+    color: #ea512f;
+    border: solid 1px #ea512f;
+    border-radius: 1rem;
+    padding: 3px 5px;
+    margin-top: 1px;
+    font-size: 11px;
+    margin-bottom: 13px;
+}
+
+.info_edit_button_container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10%;
+    margin-bottom: 8%;
+}
+
+.info_edit_button {
+    width: 320px;
+    height: 45px;
+    border-radius: 15px;
+    font-weight: bolder;
+    background: linear-gradient(#feb452, #fe9323);
+    margin-top: 80px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll {
+    overflow: hidden;
+}
+
+/*모달창*/
+.modal_overlay {
+    background: rgba(0, 0, 0, 0.212);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    width: 200px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: none;
+}
+
+.modal_skill_box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin: 10px 0 0 0;
+}
+
+.info_edit_button_container {
+    margin: 10px 0;
+}
+
+.modal_info_edit_button {
+    width: 320px;
+    height: 45px;
+    border-radius: 15px;
+    font-weight: bolder;
+    background: linear-gradient(#feb452, #fe9323);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.modal_budget {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.modal_edit_budget {
+    display: inline-block;
+    color: #000000;
+    border: solid 1px #ea512f;
+    border-radius: 1rem;
+    padding: 3px 5px;
+    margin-top: 1px;
+    font-size: 18px;
+    margin-bottom: 13px;
+}
+
+.modal_edit_budget:focus {
+    border-color: #ea512f;
+    outline: none;
+}

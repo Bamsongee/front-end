@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "../css/Login.css";
-import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "../img/logo.png";
 
 function Login() {

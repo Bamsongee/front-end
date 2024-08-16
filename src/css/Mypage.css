@@ -1,0 +1,123 @@
+.mypage_page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+/* mypage_box */
+.mypage_box {
+    width: 300px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(201, 201, 201, 0.7);
+    padding: 20px 10px;
+}
+
+.mypage_name {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 15px 1px 15px;
+    font-size: 18px;
+    font-family: "Pretendard-Bold";
+}
+
+.mypage_filter {
+    display: inline-block;
+    color: #ea512f;
+    border: solid 1px #ea512f;
+    border-radius: 1rem;
+    padding: 3px 5px;
+    margin-top: 1px;
+    font-size: 11px;
+    margin-left: 15px;
+    margin-bottom: 13px;
+}
+
+.mypage_title {
+    font-size: 12px;
+}
+
+.mypage_content {
+    font-size: 14px;
+    font-family: "Pretendard-Bold";
+    margin-left: 10px;
+}
+
+.mypage_info_row {
+    margin-left: 15px;
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 13px;
+}
+
+.mypage_info_item1 {
+    display: flex;
+    width: 80px;
+    justify-content: flex-start;
+}
+
+.mypage_info_item2 {
+    display: flex;
+    width: 120px;
+    margin-left: 10px;
+    justify-content: flex-start;
+}
+
+/* mypage_list */
+.mypage_list {
+    display: flex;
+    justify-content: space-between;
+    width: 320px;
+    margin-top: 30px;
+}
+
+.mypage_box1,
+.mypage_box2,
+.mypage_box3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 95px;
+    height: 0;
+    padding-bottom: 23%;
+    padding-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(201, 201, 201, 0.5);
+    position: relative;
+    font-size: 14px;
+}
+
+.mypage_recipe,
+.mypage_refrigerator,
+.mypage_review {
+    width: 30%;
+    height: auto;
+    position: absolute;
+    top: 63%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* mypage_notion */
+.mypage_mypageNotion {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    width: 320px;
+}
+
+.mypage_mypageNotion p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #8f8d8d;
+}
