@@ -1,42 +1,54 @@
 import React, { useState } from "react";
-import "../css/Login.css";
-import { Link, useNavigate } from "react-router-dom";
-import Logo from "../img/logo.png";
+import axios from "axios";
+import { useCookies } from "react-cookie"; 
+import { useNavigate } from "react-router-dom";
+import Logo from "../img/logo.png"; 
 
 function Login() {
+    const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
-    const navigate = useNavigate();
+    const [, setCookie] = useCookies(["accessToken", "refreshToken", "username"]);
 
-    const handleLogin = async (event) => {
-        event.preventDefault();
+    const handleLogin = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append("username", username);
+        formData.append("password", password);
 
         try {
-            const response = await fetch("https://ohmea-backend.store/login", {
-                method: "POST",
+            const response = await axios.post("https://ohmea-backend.store/login", formData, {
                 headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ username, password }),
+                    "Content-Type": "multipart/form-data",
+                }
             });
 
-            const data = await response.json();
+            console.log("Response headers:", response.headers); 
 
-            if (response.ok) {
-                const token = response.headers.get("accessToken");
-                if (token) {
-                    localStorage.setItem("token", token);
-                    alert("로그인 성공!");
-                    window.location.href = "https://ohmae.netlify.app/main";
-                } else {
-                    setErrorMessage("토큰이 제공되지 않았습니다.");
-                }
+            const accessToken = response.headers["accesstoken"];
+            const refreshToken = response.headers["refreshtoken"];
+
+            console.log("Access Token:", accessToken); 
+            console.log("Refresh Token:", refreshToken);
+
+            if (accessToken && refreshToken) {
+                setCookie("accessToken", accessToken, { path: "/" });
+                setCookie("refreshToken", refreshToken, { path: "/" });
+                setCookie("username", username, { path: "/" });
+                
+                navigate("/main");
             } else {
-                setErrorMessage(data.message || "로그인 실패");
+                alert("로그인 실패: 서버에서 반환된 토큰이 없습니다.");
             }
         } catch (error) {
-            setErrorMessage("서버와 통신 중 오류가 발생했습니다.");
+            console.error("로그인 실패:", error);
+            if (error.response && error.response.data) {
+                console.log("Error data:", error.response.data);
+                alert(`로그인 실패: ${error.response.data.message}`);
+            } else {
+                alert("로그인 실패: 서버에 연결할 수 없습니다.");
+            }
         }
     };
 
@@ -63,13 +75,12 @@ function Login() {
                 <button className="loginBtn" type="submit">
                     로그인
                 </button>
-                {errorMessage && <p className="error-message">{errorMessage}</p>}
             </form>
             <div className="ToSignup">
                 계정이 없으신가요?
-                <Link to="/signup" style={{ color: "black", marginLeft: "8px" }}>
+                <b onClick={() => navigate("/signup")} style={{ color: "black", marginLeft: "8px" }}>
                     회원가입 하러가기
-                </Link>
+                </b>
             </div>
         </div>
     );

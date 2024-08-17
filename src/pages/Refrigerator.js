@@ -7,12 +7,10 @@ function Refrigerator() {
     const ingredients = Array(10).fill("재료");
 
     const [modalType, setModalType] = useState(null);
-    const [image, setImage] = useState(null);
     const [fileName, setFileName] = useState("");
 
     const openAddModal1 = () => {
         setModalType('modal1');
-        setImage(null); // 사진 초기화
         setFileName(""); // 파일명 초기화
     };
 
@@ -22,14 +20,12 @@ function Refrigerator() {
 
     const closeAddModal = () => {
         setModalType(null); 
-        setImage(null);
         setFileName("");
     };
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         if (file) {
-            setImage(file);
             setFileName(file.name);
         }
     };
@@ -109,7 +105,6 @@ function Refrigerator() {
                         </div>
                     </div>
                 </Modal>
-
             </div>
         </div>
     );
