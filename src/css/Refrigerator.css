@@ -83,7 +83,29 @@
     align-items: center;
 }
 
-.modal_add_ing {
+.modal_img_add_ing {
+    display: inline-block;
+    background-color: #e2e2e2;
+    color: #000000;
+    font-size: 15px;
+    border: 1px solid #8e8e8e;
+    border-radius: 1rem;
+    padding: 10px 15px;
+    margin-bottom: 20%;
+    caret-color: transparent;
+}
+
+#file {
+    display: none;
+}
+
+.modal_img_name {
+    color: #646464;
+    font-size: 15px;
+    margin-bottom: 5%;
+}
+
+.modal_text_add_ing {
     display: inline-block;
     color: #000000;
     border: solid 1px #ea512f;
