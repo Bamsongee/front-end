@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import axios from "axios";
 import "../css/Refrigerator.css";
 import Ingredient from "../components/Ingredient";
 import Modal from "react-modal";
@@ -22,15 +23,15 @@ function Refrigerator() {
   const fetchIngredients = useCallback(() => {
     const token = getCookie("accessToken");
 
-    fetch("https://ohmea-backend.store/ingredients", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
+    axios
+      .get("https://ohmea-backend.store/ingredients", {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      })
+      .then((response) => {
+        const data = response.data;
         if (data.success) {
           setIngredients(data.data);
         }
@@ -86,18 +87,21 @@ function Refrigerator() {
       return;
     }
 
-    fetch("https://ohmea-backend.store/ingredients", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token,
-      },
-      body: JSON.stringify({
-        ingredient: ingredientName,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
+    axios
+      .post(
+        "https://ohmea-backend.store/ingredients",
+        {
+          ingredient: ingredientName,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+          },
+        }
+      )
+      .then((response) => {
+        const data = response.data;
         setResponseMessage(data.message);
         setShowResponseModal(true);
         if (data.success) {
