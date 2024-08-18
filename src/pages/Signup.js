@@ -36,7 +36,6 @@ function Signup() {
         formData.append("gender", selectedGender === "남" ? "MAN" : "WOMAN");
         formData.append("cookingBudget", cookingBudget);
 
-        // cookingSkill 값 설정
         const cookingSkillValue = selectedSkill === "상" ? "UPPER" : selectedSkill === "중" ? "MIDDLE" : "LOWER";
         formData.append("cookingSkill", cookingSkillValue);
 
