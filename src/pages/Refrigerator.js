@@ -7,6 +7,7 @@ function Refrigerator() {
   const [ingredients, setIngredients] = useState([]);
   const [modalType, setModalType] = useState(null);
   const [fileName, setFileName] = useState("");
+  const [filePreview, setFilePreview] = useState(null);
   const [ingredientName, setIngredientName] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
   const [showResponseModal, setShowResponseModal] = useState(false);
@@ -46,6 +47,7 @@ function Refrigerator() {
   const openAddModal1 = () => {
     setModalType("modal1");
     setFileName("");
+    setFilePreview(null);
   };
 
   const openAddModal2 = () => {
@@ -55,12 +57,19 @@ function Refrigerator() {
   const closeAddModal = () => {
     setModalType(null);
     setFileName("");
+    setFilePreview(null);
   };
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       setFileName(file.name);
+
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFilePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
     }
   };
 
@@ -139,7 +148,6 @@ function Refrigerator() {
           overlayClassName="modal_overlay"
         >
           <h2>식재료 사진</h2>
-          {/* 식재료 사진 업로드 */}
           <div className="modal_ing">
             <label htmlFor="file">
               <div className="modal_img_add_ing">사진 업로드</div>
@@ -150,10 +158,34 @@ function Refrigerator() {
               onChange={handleImageChange}
               id="file"
             />
-            {fileName && <div className="modal_img_name">{fileName}</div>}
+            {fileName && (
+              <div
+                className="modal_img_name"
+                style={{
+                  wordWrap: "break-word",
+                  wordBreak: "break-all",
+                  whiteSpace: "normal",
+                }}
+              >
+                {fileName}
+              </div>
+            )}
+            {filePreview && (
+              <div className="modal_img_preview">
+                <img
+                  src={filePreview}
+                  alt="미리보기"
+                  className="preview_image"
+                  style={{
+                    maxWidth: "100%",
+                    maxHeight: "300px",
+                    objectFit: "contain",
+                  }}
+                />
+              </div>
+            )}
           </div>
 
-          {/* 입력 완료 */}
           <div className="modal_add_button_container">
             <div className="modal_add_button" onClick={closeAddModal}>
               추가
@@ -170,17 +202,15 @@ function Refrigerator() {
           overlayClassName="modal_overlay"
         >
           <h2>식재료명</h2>
-          {/* 식재료 입력 */}
           <div className="modal_ing">
             <input
               type="text"
               className="modal_text_add_ing"
               value={ingredientName}
-              onChange={handleInputChange} // Update the input value
+              onChange={handleInputChange}
             />
           </div>
 
-          {/* 입력 완료 */}
           <div className="modal_add_button_container">
             <div className="modal_add_button" onClick={handleSubmit}>
               추가
