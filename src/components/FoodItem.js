@@ -1,23 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "../css/FoodItem.css";
-import FoodImg from "../img/FoodImg.png";
+import "../css/ProductItem.css";
 
-function FoodItem() {
-    return (
-        <div className="FoodBox">
-            <Link to="/fooddetail" className="LinkToRecipeDetail">
-                <div className="foodThumbnail">
-                    <img className="FoodImg" src={FoodImg} alt="FoodImg" />
-                </div>
+const ProductItem = ({
+  image,
+  title,
+  description,
+  originalPrice,
+  discountedPrice,
+  url,
+}) => {
+  return (
+    <div className="ProductItem">
+      <div className="img">
+        <img src={image} alt="productImg" />
+      </div>
+      <div className="details">
+        <div className="product-name">{title}</div>
+        <div className="original-price">{originalPrice}원</div>
+        <div className="discounted-price">{discountedPrice}원</div>
+      </div>
+    </div>
+  );
+};
 
-                <div className="foodInfo">
-                    <div className="foodName">오뚜기 고소한 참기름</div>
-                    <div className="foodPrice">8,140원</div>
-                </div>
-            </Link>
-        </div>
-    );
-}
-
-export default FoodItem;
+export default ProductItem;
