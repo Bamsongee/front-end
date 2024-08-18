@@ -179,6 +179,26 @@ function Refrigerator() {
     setIngredientName("");
   };
 
+  const handleDeleteIngredient = (ingredientId) => {
+    const token = getCookie("accessToken");
+
+    axios
+      .delete(`https://ohmea-backend.store/ingredients/${ingredientId}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      })
+      .then(() => {
+        fetchIngredients(); // 삭제 후 새로고침
+      })
+      .catch((error) => {
+        console.error("Error deleting ingredient:", error);
+        setResponseMessage(["식재료 삭제 실패"]);
+        setShowResponseModal(true);
+      });
+  };
+
   const closeResponseModal = () => {
     setShowResponseModal(false);
   };
@@ -200,8 +220,13 @@ function Refrigerator() {
 
         <div className="ref_list">
           <div className="ref_ingredient">
-            {ingredients.map((ingredient, index) => (
-              <Ingredient key={index} name={ingredient.ingredients} />
+            {ingredients.map((ingredient) => (
+              <Ingredient
+                key={ingredient.id}
+                name={ingredient.ingredients}
+                ingredientId={ingredient.id}
+                onDelete={() => handleDeleteIngredient(ingredient.id)}
+              />
             ))}
           </div>
         </div>
