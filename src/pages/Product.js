@@ -6,16 +6,18 @@ import React, { useState, useEffect, useCallback } from "react";
 const Product = () => {
   const [products, setProducts] = useState([]);
 
-  const getAccessCookie = (name) => {
+  const getCookie = (name) => {
     const cookieValue = document.cookie.match(
       "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
     );
     return cookieValue ? decodeURIComponent(cookieValue.pop()) : "";
   };
 
+  const username = getCookie("username");
+
   const fetchProducts = useCallback(async () => {
     try {
-      const token = getAccessCookie("accessToken");
+      const token = getCookie("accessToken");
       console.log("Token:", token);
 
       const response = await axios.get("https://ohmea-backend.store/product", {
@@ -50,7 +52,7 @@ const Product = () => {
     <div className="page">
       <div className="productBox">
         <div className="DetailPage-title">
-          <div className="DetailPage-title-des">밤송이님에게만 드리는</div>
+          <div className="DetailPage-title-des">{username}님에게만 드리는</div>
           <div className="DetailPage-title-name">🔥핫딜특가🔥</div>
         </div>
 
