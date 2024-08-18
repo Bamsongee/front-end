@@ -7,6 +7,9 @@ function Refrigerator() {
   const [ingredients, setIngredients] = useState([]);
   const [modalType, setModalType] = useState(null);
   const [fileName, setFileName] = useState("");
+  const [ingredientName, setIngredientName] = useState("");
+  const [responseMessage, setResponseMessage] = useState("");
+  const [showResponseModal, setShowResponseModal] = useState(false);
 
   const getCookie = (name) => {
     const cookieValue = document.cookie.match(
@@ -59,6 +62,49 @@ function Refrigerator() {
     if (file) {
       setFileName(file.name);
     }
+  };
+
+  const handleInputChange = (event) => {
+    setIngredientName(event.target.value);
+  };
+
+  const handleSubmit = () => {
+    const token = getCookie("accessToken");
+
+    if (ingredientName.trim() === "") {
+      setResponseMessage("식재료명을 입력해주세요.");
+      setShowResponseModal(true);
+      return;
+    }
+
+    fetch("https://ohmea-backend.store/ingredients", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+      body: JSON.stringify({
+        ingredient: ingredientName,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setResponseMessage(data.message);
+        setShowResponseModal(true);
+        if (data.success) {
+          fetchIngredients();
+        }
+      })
+      .catch((error) => {
+        console.error("Error adding ingredient:", error);
+      });
+
+    closeAddModal();
+    setIngredientName("");
+  };
+
+  const closeResponseModal = () => {
+    setShowResponseModal(false);
   };
 
   return (
@@ -126,13 +172,35 @@ function Refrigerator() {
           <h2>식재료명</h2>
           {/* 식재료 입력 */}
           <div className="modal_ing">
-            <input type="text" className="modal_text_add_ing" />
+            <input
+              type="text"
+              className="modal_text_add_ing"
+              value={ingredientName}
+              onChange={handleInputChange} // Update the input value
+            />
           </div>
 
           {/* 입력 완료 */}
           <div className="modal_add_button_container">
-            <div className="modal_add_button" onClick={closeAddModal}>
+            <div className="modal_add_button" onClick={handleSubmit}>
               추가
+            </div>
+          </div>
+        </Modal>
+
+        {/* 응답 메시지 모달 */}
+        <Modal
+          isOpen={showResponseModal}
+          onRequestClose={closeResponseModal}
+          contentLabel="응답 메시지 모달"
+          className="modal"
+          overlayClassName="modal_overlay"
+        >
+          <h2>알림</h2>
+          <div className="modal_response_message">{responseMessage}</div>
+          <div className="modal_add_button_container">
+            <div className="modal_add_button" onClick={closeResponseModal}>
+              닫기
             </div>
           </div>
         </Modal>
