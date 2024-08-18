@@ -9,8 +9,9 @@ function Refrigerator() {
   const [modalType, setModalType] = useState(null);
   const [fileName, setFileName] = useState("");
   const [filePreview, setFilePreview] = useState(null);
+  const [file, setFile] = useState(null);
   const [ingredientName, setIngredientName] = useState("");
-  const [responseMessage, setResponseMessage] = useState("");
+  const [responseMessage, setResponseMessage] = useState([]);
   const [showResponseModal, setShowResponseModal] = useState(false);
 
   const getCookie = (name) => {
@@ -49,6 +50,7 @@ function Refrigerator() {
     setModalType("modal1");
     setFileName("");
     setFilePreview(null);
+    setFile(null); // 업로드된 파일 초기화
   };
 
   const openAddModal2 = () => {
@@ -59,19 +61,78 @@ function Refrigerator() {
     setModalType(null);
     setFileName("");
     setFilePreview(null);
+    setFile(null); // 업로드된 파일 초기화
   };
 
   const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      setFileName(file.name);
+    const selectedFile = event.target.files[0];
+    if (selectedFile) {
+      setFileName(selectedFile.name);
+      setFile(selectedFile); // 파일 상태 저장
 
       const reader = new FileReader();
       reader.onloadend = () => {
         setFilePreview(reader.result);
       };
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(selectedFile);
     }
+  };
+
+  const handleSubmitImage = () => {
+    const token = getCookie("accessToken");
+
+    if (!file) {
+      setResponseMessage(["이미지를 선택해주세요."]);
+      setShowResponseModal(true);
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    axios
+      .post("https://ohmea-backend.store/detection", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: token,
+        },
+      })
+      .then((response) => {
+        const data = response.data.data.results;
+        const newItems = data
+          .filter((item) => item.isExists === false)
+          .map((item) => item.ingredients);
+        const existingItems = data
+          .filter((item) => item.isExists === true)
+          .map((item) => item.ingredients);
+
+        let messageParts = [];
+
+        if (newItems.length > 0) {
+          messageParts.push(`등록 완료: ${newItems.join(", ")}`);
+        }
+
+        if (existingItems.length > 0) {
+          messageParts.push(
+            `이미 존재하는 식재료: ${existingItems.join(", ")}`
+          );
+        }
+
+        setResponseMessage(messageParts);
+        setShowResponseModal(true);
+
+        if (newItems.length > 0) {
+          // 새로운 항목들을 냉장고에 등록
+          fetchIngredients();
+        }
+      })
+      .catch((error) => {
+        console.error("Error uploading image:", error);
+        setResponseMessage(["이미지 업로드 실패"]);
+        setShowResponseModal(true);
+      });
+
+    closeAddModal();
   };
 
   const handleInputChange = (event) => {
@@ -82,7 +143,7 @@ function Refrigerator() {
     const token = getCookie("accessToken");
 
     if (ingredientName.trim() === "") {
-      setResponseMessage("식재료명을 입력해주세요.");
+      setResponseMessage(["식재료명을 입력해주세요."]);
       setShowResponseModal(true);
       return;
     }
@@ -102,7 +163,7 @@ function Refrigerator() {
       )
       .then((response) => {
         const data = response.data;
-        setResponseMessage(data.message);
+        setResponseMessage([data.message]);
         setShowResponseModal(true);
         if (data.success) {
           fetchIngredients();
@@ -110,6 +171,8 @@ function Refrigerator() {
       })
       .catch((error) => {
         console.error("Error adding ingredient:", error);
+        setResponseMessage(["식재료 추가 실패"]);
+        setShowResponseModal(true);
       });
 
     closeAddModal();
@@ -191,7 +254,7 @@ function Refrigerator() {
           </div>
 
           <div className="modal_add_button_container">
-            <div className="modal_add_button" onClick={closeAddModal}>
+            <div className="modal_add_button" onClick={handleSubmitImage}>
               추가
             </div>
           </div>
@@ -231,7 +294,11 @@ function Refrigerator() {
           overlayClassName="modal_overlay"
         >
           <h2>알림</h2>
-          <div className="modal_response_message">{responseMessage}</div>
+          <div className="modal_response_message">
+            {responseMessage.map((part, index) => (
+              <p key={index}>{part}</p>
+            ))}
+          </div>
           <div className="modal_add_button_container">
             <div className="modal_add_button" onClick={closeResponseModal}>
               닫기
