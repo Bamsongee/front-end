@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import "../css/Info.css";
 import InfoEdit from "../img/infoEdit.png";
@@ -20,54 +20,60 @@ function Main() {
     const [cookies] = useCookies(["accessToken"]);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const fetchUserInfo = async () => {
-            try {
-                const response = await axios.get("https://ohmea-backend.store/mypage", {
-                    headers: {
-                        Authorization: `${cookies.accessToken}`,
-                    },
-                });
+    const fetchUserInfo = useCallback(async () => {
+        try {
+            const response = await axios.get("https://ohmea-backend.store/mypage", {
+                headers: {
+                    Authorization: `${cookies.accessToken}`,
+                },
+            });
 
-                if (response.data.success) {
-                    const { username, gender, cookingSkill, cookingBudget } = response.data.data;
-                    setUsername(username);
-                    setGender(gender === "WOMAN" ? "여성" : "남성");
-                    setSelectedSkill(cookingSkill === "MIDDLE" ? "중" : cookingSkill === "UPPER" ? "상" : "하");
-                    setBudget(cookingBudget.toLocaleString());
-                } else {
-                    alert("사용자 정보를 불러오는 데 실패했습니다.");
-                }
-            } catch (error) {
-                console.error("사용자 정보를 가져오는 중 오류 발생:", error);
-                alert("사용자 정보를 가져오는 중 오류가 발생했습니다.");
+            if (response.data.success) {
+                const { username, gender, cookingSkill, cookingBudget } = response.data.data;
+                setUsername(username);
+                setGender(gender === "WOMAN" ? "여성" : "남성");
+                setSelectedSkill(cookingSkill === "MIDDLE" ? "중" : cookingSkill === "UPPER" ? "상" : "하");
+                setBudget(cookingBudget.toLocaleString());
+            } else {
+                alert("사용자 정보를 불러오는 데 실패했습니다.");
             }
-        };
-
-        fetchUserInfo();
+        } catch (error) {
+            console.error("사용자 정보를 가져오는 중 오류 발생:", error);
+            alert("사용자 정보를 가져오는 중 오류가 발생했습니다.");
+        }
     }, [cookies.accessToken]);
 
-    const openSkillModal = () => {
+    useEffect(() => {
+        fetchUserInfo();
+    }, [fetchUserInfo]);
+
+    const openSkillModal = useCallback(() => {
         setTempSkill(selectedSkill);
         setIsSkillModalOpen(true);
-    };
-    const closeSkillModal = () => {
+    }, [selectedSkill]);
+
+    const closeSkillModal = useCallback(() => {
         setSelectedSkill(tempSkill);
         setIsSkillModalOpen(false);
-    };
-    const openBudgetModal = () => {
+    }, [tempSkill]);
+
+    const openBudgetModal = useCallback(() => {
         setTempBudget(budget.replace(/,/g, ''));
         setIsBudgetModalOpen(true);
-    };
-    const closeBudgetModal = () => {
+    }, [budget]);
+
+    const closeBudgetModal = useCallback(() => {
         setBudget(tempBudget.toLocaleString());
         setIsBudgetModalOpen(false);
-    };
+    }, [tempBudget]);
 
-    const handleSkillChange = (skill) => setTempSkill(skill);
-    const handleBudgetChange = (event) => setTempBudget(event.target.value.replace(/,/g, '')); 
+    const handleSkillChange = useCallback((skill) => setTempSkill(skill), []);
 
-    const updateUserInfo = async () => {
+    const handleBudgetChange = useCallback((event) => {
+        setTempBudget(event.target.value.replace(/,/g, ''));
+    }, []);
+
+    const updateUserInfo = useCallback(async () => {
         try {
             const response = await axios.put(
                 "https://ohmea-backend.store/update",
@@ -92,7 +98,7 @@ function Main() {
             console.error("회원 정보 수정 중 오류 발생:", error);
             alert("회원 정보 수정 중 오류가 발생했습니다.");
         }
-    };
+    }, [tempSkill, tempBudget, cookies.accessToken, navigate]);
 
     return (
         <div className="page">

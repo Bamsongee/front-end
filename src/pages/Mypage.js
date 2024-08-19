@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import "../css/Mypage.css";
@@ -11,30 +11,29 @@ function Mypage() {
     const [cookies] = useCookies(["accessToken", "username"]);
     const [userInfo, setUserInfo] = useState(null);
 
+    const fetchUserInfo = useCallback(async () => {
+        try {
+            const response = await axios.get("https://ohmea-backend.store/mypage", {
+                headers: {
+                    Authorization: `${cookies.accessToken}`,
+                },
+            });
+
+            if (response.data.success) {
+                setUserInfo(response.data.data);
+            } else {
+                alert("유저 정보를 불러오는데 실패했습니다.");
+            }
+        } catch (error) {
+            console.error("유저 정보를 가져오는 중 오류 발생:", error);
+            alert("유저 정보를 가져오는 중 오류가 발생했습니다.");
+        }
+    }, [cookies.accessToken]);
+
     useEffect(() => {
         console.log("Access Token:", cookies.accessToken);
-
-        const fetchUserInfo = async () => {
-            try {
-                const response = await axios.get("https://ohmea-backend.store/mypage", {
-                    headers: {
-                        Authorization: `${cookies.accessToken}`,
-                    },
-                });
-
-                if (response.data.success) {
-                    setUserInfo(response.data.data);
-                } else {
-                    alert("유저 정보를 불러오는데 실패했습니다.");
-                }
-            } catch (error) {
-                console.error("유저 정보를 가져오는 중 오류 발생:", error);
-                alert("유저 정보를 가져오는 중 오류가 발생했습니다.");
-            }
-        };
-
         fetchUserInfo();
-    }, [cookies.accessToken]);
+    }, [fetchUserInfo, cookies.accessToken]); // cookies.accessToken을 의존성 배열에 추가
 
     if (!userInfo) {
         return <div>Loading...</div>;

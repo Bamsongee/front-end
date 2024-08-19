@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../css/Login.css";
@@ -14,15 +14,15 @@ function Signup() {
     const [cookingBudget, setCookingBudget] = useState("");
     const navigate = useNavigate();
 
-    const handleGenderChange = (gender) => {
+    const handleGenderChange = useCallback((gender) => {
         setSelectedGender(gender);
-    };
+    }, []);
 
-    const handleSkillChange = (skill) => {
+    const handleSkillChange = useCallback((skill) => {
         setSelectedSkill(skill);
-    };
+    }, []);
 
-    const handleSignup = async (event) => {
+    const handleSignup = useCallback(async (event) => {
         event.preventDefault();
 
         if (password !== passwordCheck) {
@@ -56,7 +56,7 @@ function Signup() {
             console.error("회원가입 중 오류 발생:", error);
             alert("회원가입 중 오류가 발생했습니다.");
         }
-    };
+    }, [username, password, passwordCheck, selectedGender, cookingBudget, selectedSkill, navigate]);
 
     return (
         <div className="SignupBox">
