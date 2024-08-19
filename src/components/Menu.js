@@ -87,7 +87,7 @@ function Menu({ closeMenu }) {
                             <div className="hamBox-page">만들 수 있는 레시피</div>
                             <img className="HamGo" src={HamGo} alt="HamGo"></img>
                         </Link>
-                        <Link className="hamBox-Link" to="/search" onClick={closeMenu}>
+                        <Link className="hamBox-Link" to="/recipe/search" onClick={closeMenu}>
                             <div className="hamBox-page">레시피 검색</div>
                             <img className="HamGo" src={HamGo} alt="HamGo"></img>
                         </Link>

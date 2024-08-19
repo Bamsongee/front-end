@@ -32,7 +32,7 @@ function App() {
                 <Route exact path="/custom" element={<Custom />} />
                 <Route exact path="/make" element={<IngredientRecipe />} />
                 <Route exact path="/save" element={<Save />} />
-                <Route exact path="/search" element={<Search />} />
+                <Route exact path="/recipe/search" element={<Search />} />
                 <Route exact path="/login" element={<Login />} />
                 <Route exact path="/signup" element={<Signup />} />
                 <Route exact path="/products" element={<Product />} />

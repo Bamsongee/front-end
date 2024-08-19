@@ -5,17 +5,18 @@ import Comment from "../components/Comment";
 
 const RecipeDetail = () => {
     const params = useParams();
-    console.log(params);
+    const recipeId = params.id;
+    console.log(recipeId);
 
     return (
         <>
             <div className="page">
                 <div className="RecipeDetailBox">
                     <div className="recipe-box">
-                        <Recipe />
+                        <Recipe id={recipeId} />
                     </div>
                     <div className="recipe-box">
-                        <Comment />
+                        <Comment id={recipeId} />
                     </div>
                 </div>
             </div>

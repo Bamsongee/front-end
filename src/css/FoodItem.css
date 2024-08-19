@@ -10,27 +10,35 @@
     margin-right: 15px;
 }
 
-.LinkToRecipeDetail {
+.LinkToFoodDetail {
+    width: 130px !important;
     text-decoration: none;
     color: #000000;
     width: 100%;
     height: 100%;
     padding: 0;
     margin: 0;
-}
-
-.foodThumbnail {
-    width: 110px;
-    height: 60px;
-    padding: 10px;
+    border-radius: 12px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.foodThumbnail {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 12px 12px 0px 0px;
+    padding: 0;
+}
+
 .FoodImg {
-    width: auto;
-    height: 70px;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px 12px 0px 0px;
 }
 
 .foodInfo {
@@ -40,6 +48,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 .foodName {

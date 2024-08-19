@@ -59,9 +59,9 @@
 
 .DetailPage-contents {
     display: grid;
-    grid-template-columns: repeat(2, 150px);
+    grid-template-columns: repeat(2, 160px);
     grid-template-rows: 160px;
     justify-content: center;
     row-gap: 20px;
-    column-gap: 25px;
+    column-gap: 20px;
 }
