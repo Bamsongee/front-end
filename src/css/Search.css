@@ -64,9 +64,18 @@
     font-size: large;
     font-weight: bold;
     margin-top: 10px;
+    display: flex;
+    flex-direction: row;
 }
 
 .NoMatching2 {
     color: #a0a0a0;
     margin-top: 5px;
+}
+
+.NoMatching1-inputWord {
+    max-width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

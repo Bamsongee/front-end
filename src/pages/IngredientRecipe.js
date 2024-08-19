@@ -1,13 +1,49 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "../css/IngredientRecipe.css";
 import Nav from "../components/Nav";
 import Header from "../components/Header";
 import RecipeItem from "../components/RecipeItem";
+import axios from "axios";
+import { useCookies } from "react-cookie";
 
 function IngredientRecipe() {
     const [category, setCategory] = useState("");
     const [difficulty, setDifficulty] = useState("");
     const [time, setTime] = useState("");
+    const [cookies] = useCookies(["accessToken", "username"]);
+    const [recipeList, setRecipeList] = useState([]);
+    const [filteredRecipes, setFilteredRecipes] = useState([]);
+
+    const fetchData = useCallback(async () => {
+        try {
+            const token = cookies.accessToken;
+
+            if (!token) {
+                console.error("No access token found in cookies");
+                return;
+            }
+            console.log("Using token:", token);
+
+            const response = await axios.get(`https://ohmea-backend.store/recipe/possible`, {
+                headers: {
+                    Authorization: `${token}`,
+                },
+            });
+
+            if (response.data.success) {
+                console.log("success fetch data:", response.data.message);
+                setRecipeList(response.data.data);
+            } else {
+                console.error("Failed to fetch data:", response.data.message);
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    }, [cookies]);
+
+    useEffect(() => {
+        fetchData();
+    }, [fetchData]);
 
     const handleCategoryChange = (event) => {
         setCategory(event.target.value);
@@ -21,13 +57,46 @@ function IngredientRecipe() {
         setTime(event.target.value);
     };
 
+    const getTimeBoundary = (timeRange) => {
+        switch (timeRange) {
+            case "15분 이내":
+                return 15;
+            case "30분 이내":
+                return 30;
+            case "60분 이내":
+                return 60;
+            case "1시간 초과":
+                return 61;
+            default:
+                return null;
+        }
+    };
+
+    useEffect(() => {
+        const timeBoundary = getTimeBoundary(time);
+
+        const filtered = recipeList.filter((recipe) => {
+            const recipeTime = recipe.time;
+
+            return (
+                (!category || recipe.category === category) &&
+                (!difficulty || recipe.difficulty === difficulty) &&
+                (timeBoundary === null || (timeBoundary === 61 ? recipeTime > 60 : recipeTime <= timeBoundary))
+            );
+        });
+
+        setFilteredRecipes(filtered);
+    }, [category, difficulty, time, recipeList]);
+
+    const username = cookies.username;
+
     return (
         <>
             <Header></Header>
             <div className="page">
                 <div className="IngredientRecipeBox">
                     <div className="DetailPage-title">
-                        <div className="DetailPage-title-des">밤송이님의 예산과 식재료로</div>
+                        <div className="DetailPage-title-des">{username}님의 예산과 식재료로</div>
                         <div className="DetailPage-title-name">만들 수 있는 레시피</div>
                     </div>
                     <div className="DetailPage-filter">
@@ -53,21 +122,24 @@ function IngredientRecipe() {
                             <option value="" disabled hidden>
                                 요리 소요 시간
                             </option>
-                            <option value="30분 미만">30분 미만</option>
-                            <option value="1시간 미만">1시간 미만</option>
-                            <option value="1시간 이상">1시간 이상</option>
+                            <option value="15분 이내">15분 이내</option>
+                            <option value="30분 이내">30분 이내</option>
+                            <option value="60분 이내">60분 이내</option>
+                            <option value="1시간 초과">1시간 초과</option>
                         </select>
                     </div>
                     <div className="DetailPage-contents">
-                        <RecipeItem></RecipeItem>
-                        <RecipeItem></RecipeItem>
-                        <RecipeItem></RecipeItem>
-                        <RecipeItem></RecipeItem>
-                        <RecipeItem></RecipeItem>
-                        <RecipeItem></RecipeItem>
-                        <RecipeItem></RecipeItem>
-                        <RecipeItem></RecipeItem>
-                        <RecipeItem></RecipeItem>
+                        {filteredRecipes.map((recipe, index) => (
+                            <RecipeItem
+                                key={index}
+                                id={recipe.id}
+                                name={recipe.name}
+                                imageUrl={recipe.imageUrl}
+                                category={recipe.category}
+                                time={recipe.time}
+                                difficulty={recipe.difficulty}
+                            />
+                        ))}
                     </div>
                 </div>
             </div>

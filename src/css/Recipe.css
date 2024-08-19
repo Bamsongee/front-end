@@ -7,6 +7,7 @@
 .Recipe .foodImg {
     width: 100%;
     height: auto;
+    border-radius: 20px;
 }
 
 .Recipe .recipeCategory {
@@ -36,7 +37,7 @@
 .Recipe .recipeMain {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
     margin-top: 10px;
 }
@@ -44,6 +45,14 @@
 .Recipe .recipeTitle {
     font-size: 30px;
     font-weight: bold;
+    padding-right: 10px;
+}
+
+.Recipe .heart {
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .Recipe .heart img {
@@ -69,12 +78,17 @@
     font-size: 20px;
 }
 
+.Recipe .recipeSubContent {
+    margin: 16px 0 0 0;
+}
+
 .ingredientsTwoSection {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
-    padding-right: 40px;
+    padding-right: 20px;
+    gap: 20px;
 }
 
 .Recipe .ingredients {
@@ -84,4 +98,5 @@
 .Recipe .order {
     margin: 16px 10px;
     white-space: pre-wrap;
+    line-height: 1.5;
 }

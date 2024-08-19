@@ -1,19 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../css/FoodItem.css";
-import FoodImg from "../img/FoodImg.png";
 
-function FoodItem() {
+function FoodItem({ title, image, price, link }) {
     return (
         <div className="FoodBox">
-            <Link to="/fooddetail" className="LinkToRecipeDetail">
+            <Link to={link} className="LinkToFoodDetail">
                 <div className="foodThumbnail">
-                    <img className="FoodImg" src={FoodImg} alt="FoodImg" />
+                    <img className="FoodImg" src={image} alt="FoodImg" />
                 </div>
 
                 <div className="foodInfo">
-                    <div className="foodName">오뚜기 고소한 참기름</div>
-                    <div className="foodPrice">8,140원</div>
+                    <div className="foodName">{title}</div>
+                    <div className="foodPrice">{price}</div>
                 </div>
             </Link>
         </div>
