@@ -33,7 +33,7 @@ function Mypage() {
     useEffect(() => {
         console.log("Access Token:", cookies.accessToken);
         fetchUserInfo();
-    }, [fetchUserInfo, cookies.accessToken]); // cookies.accessToken을 의존성 배열에 추가
+    }, [fetchUserInfo, cookies.accessToken]);
 
     if (!userInfo) {
         return <div>Loading...</div>;
@@ -77,16 +77,23 @@ function Mypage() {
 
                 <div className="mypage_list">
                     <div className="mypage_box1">
-                        <p>찜한 레시피</p>
-                        <img src={MyRecipe} alt="myRecipe" className="mypage_recipe" />
+                        <a href="/save">
+                            <p>찜한 레시피</p>
+                            <img src={MyRecipe} alt="myRecipe" className="mypage_recipe" />
+                        </a>
                     </div>
+                    
                     <div className="mypage_box2">
-                        <p>나의 냉장고</p>
-                        <img src={MyRefrigerator} alt="myRefrigerator" className="mypage_refrigerator" />
+                        <a href="/refrigerator">
+                            <p>나의 냉장고</p>
+                            <img src={MyRefrigerator} alt="myRefrigerator" className="mypage_refrigerator" />
+                        </a>
                     </div>
                     <div className="mypage_box3">
-                        <p>나의 리뷰</p>
-                        <img src={MyReview} alt="myReview" className="mypage_review" />
+                        <a href="/review">
+                            <p>나의 리뷰</p>
+                            <img src={MyReview} alt="myReview" className="mypage_review" />
+                        </a>
                     </div>
                 </div>
 
