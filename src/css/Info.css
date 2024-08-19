@@ -17,9 +17,15 @@
     display: flex;
     align-items: center;
     padding-bottom: 1.5%;
+    margin-top: 2%;
+}
+
+.info_edit_box {
+    margin-top: 15%;
 }
 
 .info_title {
+    
     font-size: 14px;
 }
 

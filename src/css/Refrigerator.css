@@ -1,138 +1,138 @@
 /* ref_page */
 .ref_page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 /* ref_box */
 
 .ref_button {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .ref_button_1,
 .ref_button_2 {
-    text-align: center;
-    width: 120px;
-    height: 45px;
-    border-radius: 15px;
-    font-weight: bolder;
-    background: linear-gradient(#feb452, #fe9323);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  text-align: center;
+  width: 120px;
+  height: 45px;
+  border-radius: 15px;
+  font-weight: bolder;
+  background: linear-gradient(#feb452, #fe9323);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ref_list */
 .ref_list {
-    margin-top: 40px;
-    background-color: #fafafa;
-    display: flex;
-    flex-direction: column;
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 20px;
+  margin-top: 40px;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px;
 }
 
 .ref_ingredient {
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 13px;
-    padding: 10px;
-    border-radius: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  padding: 10px;
+  border-radius: 20px;
 }
 
 /* 모달창 */
 .modal_overlay {
-    background: rgba(0, 0, 0, 0.212);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background: rgba(0, 0, 0, 0.212);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal {
-    background: white;
-    padding: 20px;
-    border-radius: 20px;
-    width: 300px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .modal_ing {
-    margin-top: 20px;
-    font-size: 20px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin-top: 20px;
+  font-size: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .modal_img_add_ing {
-    display: inline-block;
-    background-color: #e2e2e2;
-    color: #000000;
-    font-size: 15px;
-    border: 1px solid #8e8e8e;
-    border-radius: 1rem;
-    padding: 10px 15px;
-    margin-bottom: 20%;
-    caret-color: transparent;
+  display: inline-block;
+  background-color: #e2e2e2;
+  color: #000000;
+  font-size: 15px;
+  border: 1px solid #8e8e8e;
+  border-radius: 1rem;
+  padding: 10px 15px;
+  margin-bottom: 20%;
+  caret-color: transparent;
 }
 
 #file {
-    display: none;
+  display: none;
 }
 
 .modal_img_name {
-    color: #646464;
-    font-size: 15px;
-    margin-bottom: 5%;
+  color: #646464;
+  font-size: 15px;
+  margin-bottom: 5%;
 }
 
 .modal_text_add_ing {
-    display: inline-block;
-    color: #000000;
-    border: solid 1px #ea512f;
-    border-radius: 1rem;
-    padding: 10px 15px;
-    font-size: 18px;
-    width: 80%;
-    box-sizing: border-box;
-    margin-bottom: 5%;
-    height: 40px;
+  display: inline-block;
+  color: #000000;
+  border: solid 1px #ea512f;
+  border-radius: 1rem;
+  padding: 10px 15px;
+  font-size: 18px;
+  width: 80%;
+  box-sizing: border-box;
+  margin-bottom: 5%;
+  height: 40px;
 }
 
 .modal_add_ing:focus {
-    border-color: #ea512f;
-    outline: none;
+  border-color: #ea512f;
+  outline: none;
 }
 
 .modal_add_button {
-    width: 300px;
-    height: 45px;
-    border-radius: 15px;
-    font-weight: bolder;
-    background: linear-gradient(#feb452, #fe9323);
-    margin-top: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 300px;
+  height: 45px;
+  border-radius: 15px;
+  font-weight: bolder;
+  background: linear-gradient(#feb452, #fe9323);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

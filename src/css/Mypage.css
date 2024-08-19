@@ -72,6 +72,12 @@
     justify-content: flex-start;
 }
 
+.mypage_info_item3 {
+    display: flex;
+    width: 120px;
+    justify-content: flex-start;
+}
+
 /* mypage_list */
 .mypage_list {
     display: flex;
@@ -120,4 +126,10 @@
     margin: 8px 0;
     font-size: 16px;
     color: #8f8d8d;
+}
+
+/*href 밑줄 없애기*/
+a {
+    text-decoration-line: none;
+    color: black;
 }
