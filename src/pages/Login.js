@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie"; 
 import { useNavigate } from "react-router-dom";
@@ -10,7 +10,7 @@ function Login() {
     const [password, setPassword] = useState("");
     const [, setCookie] = useCookies(["accessToken", "refreshToken", "username"]);
 
-    const handleLogin = async (e) => {
+    const handleLogin = useCallback(async (e) => {
         e.preventDefault();
 
         const formData = new FormData();
@@ -50,7 +50,7 @@ function Login() {
                 alert("로그인 실패: 서버에 연결할 수 없습니다.");
             }
         }
-    };
+    }, [username, password, navigate, setCookie]); // 의존성 배열에 필요한 값 추가
 
     return (
         <div className="loginBox">
