@@ -72,6 +72,12 @@
     justify-content: flex-start;
 }
 
+.mypage_info_item3 {
+    display: flex;
+    width: 120px;
+    justify-content: flex-start;
+}
+
 /* mypage_list */
 .mypage_list {
     display: flex;
