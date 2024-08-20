@@ -1,51 +1,50 @@
 .ProductItem {
-    width: 320px;
-    border-radius: 20px;
-    box-shadow: 0 2px 5px rgba(201, 201, 201, 0.7);
-    margin-bottom: 10px;
-    display: flex;
-    gap: 10px;
+  width: 320px;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px rgba(201, 201, 201, 0.7);
+  margin-bottom: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .ProductItem .mainProductItem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
 }
 
 .ProductItem .img img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 10px 0px 0px 10px;
-    border-right: 1px solid #a1a1a1;
-    display: block;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px 0px 0px 10px;
+  border-right: 1px solid #a1a1a1;
+  display: block;
 }
 
 .ProductItem .details {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding-left: 15px;
-    justify-content: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .ProductItem .details .product-name {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .ProductItem .details .original-price {
-    font-size: 14px;
-    color: gray;
-    text-decoration: line-through;
+  font-size: 14px;
+  color: gray;
+  text-decoration: line-through;
 }
 
 .ProductItem .details .discounted-price {
-    font-size: 16px;
-    font-weight: bold;
-    color: red;
+  font-size: 16px;
+  font-weight: bold;
+  color: red;
 }
