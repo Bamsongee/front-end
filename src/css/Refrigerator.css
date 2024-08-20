@@ -27,6 +27,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
 /* ref_list */
@@ -135,4 +136,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.ref_no_ingredients_message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #777;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
