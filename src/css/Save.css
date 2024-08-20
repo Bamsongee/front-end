@@ -8,25 +8,6 @@
     padding-right: 8%;
 }
 
-.DetailPage-title {
-    width: 325px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 10px 0px 20px 0px;
-}
-
-.DetailPage-title-des {
-    color: #ff7a00;
-    font-weight: bolder;
-    font-size: small;
-}
-
-.DetailPage-title-name {
-    font-weight: bolder;
-    font-size: large;
-}
-
 .Save-CategoryContainer {
     display: flex;
     flex-direction: column;
@@ -55,7 +36,7 @@
 }
 
 .Save-CategoryList {
-    height: 170px;
+    height: 180px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
