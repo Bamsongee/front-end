@@ -8,8 +8,12 @@ const ProductItem = ({
   discountedPrice,
   url,
 }) => {
+  const handleClick = () => {
+    window.open(url, "_blank");
+  };
+
   return (
-    <div className="ProductItem">
+    <div className="ProductItem" onClick={handleClick}>
       <div className="img">
         <img src={image} alt="productImg" />
       </div>
