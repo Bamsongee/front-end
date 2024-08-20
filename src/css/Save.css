@@ -8,25 +8,6 @@
     padding-right: 8%;
 }
 
-.DetailPage-title {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 10px 0px 20px 0px;
-}
-
-.DetailPage-title-des {
-    color: #ff7a00;
-    font-weight: bolder;
-    font-size: small;
-}
-
-.DetailPage-title-name {
-    font-weight: bolder;
-    font-size: large;
-}
-
 .Save-CategoryContainer {
     display: flex;
     flex-direction: column;
@@ -55,7 +36,7 @@
 }
 
 .Save-CategoryList {
-    height: 170px;
+    height: 180px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -65,16 +46,17 @@
 
 .Save-NoItemContainer {
     display: flex;
-    justify-content: center; 
-    width: 100%; 
-    margin: 20px 0; 
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px;
+    height: 70%;
 }
 
 .Save-NoItem {
     font-size: 18px;
-    color: #777; 
+    color: #777;
 }
-
 
 .RecipeItemMargin {
     margin-right: 15px;
