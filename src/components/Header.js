@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../css/Header.css";
 import HeaderLogo from "../img/logo.png";
 import HamBar from "../img/ham.png";
-import Bell from "../img/bell.png";
+import Back from "../img/header_back.png";
 import Menu from "../components/Menu";
 
 function Header() {
@@ -22,10 +22,14 @@ function Header() {
         navigate("/main");
     };
 
+    const goBack = () => {
+        navigate(-1);
+    };
+
     return (
         <>
             <div className="HeaderBox">
-                <img className="bell" src={Bell} alt="bell"></img>
+                <img className="Back" src={Back} alt="Back" onClick={goBack}></img>
                 <img className="header-logo" src={HeaderLogo} alt="HeaderLogo" onClick={goToMain}></img>
                 <img className="ham" src={HamBar} alt="HamBar" onClick={toggleMenu}></img>
             </div>

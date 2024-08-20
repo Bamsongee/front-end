@@ -51,6 +51,11 @@
     width: 100%;
     padding: 20px;
     height: 70%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px;
+    height: 70%;
 }
 
 .Save-NoItem {

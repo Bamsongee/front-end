@@ -3,7 +3,8 @@ import axios from "axios";
 import "../css/Review.css";
 import MoreRecipe from "../img/ham_go.png";
 import { useNavigate } from "react-router-dom";
-import { useCookies } from "react-cookie"; 
+import { useCookies } from "react-cookie";
+import noReviewImg from "../img/noReviewImg.png";
 
 function Review() {
     const navigate = useNavigate();
@@ -33,9 +34,12 @@ function Review() {
         fetchComments();
     }, [fetchComments]);
 
-    const handleImageClick = useCallback((recipeId) => {
-        navigate(`/recipe/${recipeId}`);
-    }, [navigate]);
+    const handleImageClick = useCallback(
+        (recipeId) => {
+            navigate(`/recipe/${recipeId}`);
+        },
+        [navigate]
+    );
 
     return (
         <div className="page">
@@ -46,11 +50,11 @@ function Review() {
                         <div key={comment.id} className="ReviewContainer">
                             <div className="Review-recipe">
                                 <div className="Review-recipeName">{comment.recipeName}</div>
-                                <img 
-                                    src={MoreRecipe} 
-                                    alt="MoreRecipe" 
-                                    className="MoreRecipe" 
-                                    onClick={() => handleImageClick(comment.recipeId)} 
+                                <img
+                                    src={MoreRecipe}
+                                    alt="MoreRecipe"
+                                    className="MoreRecipe"
+                                    onClick={() => handleImageClick(comment.recipeId)}
                                 />
                             </div>
                             <div className="Review-comment">
@@ -60,7 +64,10 @@ function Review() {
                         </div>
                     ))
                 ) : (
-                    <div>댓글이 없습니다.</div>
+                    <div className="no_review_message">
+                        <img src={noReviewImg} alt="ref3d"></img>
+                        <div>도움이 된 레시피에 리뷰를 남겨보세요!</div>
+                    </div>
                 )}
             </div>
         </div>
