@@ -220,14 +220,20 @@ function Refrigerator() {
 
         <div className="ref_list">
           <div className="ref_ingredient">
-            {ingredients.map((ingredient) => (
-              <Ingredient
-                key={ingredient.id}
-                name={ingredient.ingredients}
-                ingredientId={ingredient.id}
-                onDelete={() => handleDeleteIngredient(ingredient.id)}
-              />
-            ))}
+            {ingredients.length === 0 ? (
+              <div style={{ width: "230px", textAlign: "center" }}>
+                식재료가 없습니다.
+              </div>
+            ) : (
+              ingredients.map((ingredient) => (
+                <Ingredient
+                  key={ingredient.id}
+                  name={ingredient.ingredients}
+                  ingredientId={ingredient.id}
+                  onDelete={() => handleDeleteIngredient(ingredient.id)}
+                />
+              ))
+            )}
           </div>
         </div>
 
