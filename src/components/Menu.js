@@ -40,11 +40,11 @@ function Menu({ closeMenu }) {
         const refreshToken = cookies.refreshToken.startsWith("Bearer ")
             ? cookies.refreshToken.replace("Bearer ", "")
             : cookies.refreshToken;
-    
+
         try {
             console.log("Access Token:", cookies.accessToken);
             console.log("Refresh Token:", refreshToken);
-    
+
             const response = await axios.post(
                 "https://ohmea-backend.store/logout",
                 {},
@@ -55,11 +55,11 @@ function Menu({ closeMenu }) {
                     },
                 }
             );
-    
+
             if (response.data.success) {
                 removeCookie("accessToken");
                 removeCookie("refreshToken");
-    
+
                 navigate("/login");
             } else {
                 alert("로그아웃에 실패했습니다.");
@@ -69,10 +69,16 @@ function Menu({ closeMenu }) {
             alert("로그아웃 중 오류가 발생했습니다.");
         }
     }, [cookies.accessToken, cookies.refreshToken, navigate, removeCookie]);
-    
+
+    const handleBackgroundClick = (event) => {
+        if (event.target.classList.contains("MenuBack")) {
+            closeMenu();
+        }
+    };
+
     return (
         <>
-            <div className="MenuBack">
+            <div className="MenuBack" onClick={handleBackgroundClick}>
                 <div className="MenuBox">
                     <img className="hamX" src={HamX} alt="hamX" onClick={closeMenu}></img>
                     <img className="hamLogo" src={Logo} alt="hamLogo"></img>
