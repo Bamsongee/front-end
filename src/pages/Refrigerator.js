@@ -218,18 +218,24 @@ function Refrigerator() {
           </div>
         </div>
 
-        <div className="ref_list">
-          <div className="ref_ingredient">
-            {ingredients.map((ingredient) => (
-              <Ingredient
-                key={ingredient.id}
-                name={ingredient.ingredients}
-                ingredientId={ingredient.id}
-                onDelete={() => handleDeleteIngredient(ingredient.id)}
-              />
-            ))}
+        {ingredients.length === 0 ? (
+          <div className="ref_no_ingredients_message">
+            등록된 식재료가 없습니다.
           </div>
-        </div>
+        ) : (
+          <div className="ref_list">
+            <div className="ref_ingredient">
+              {ingredients.map((ingredient) => (
+                <Ingredient
+                  key={ingredient.id}
+                  name={ingredient.ingredients}
+                  ingredientId={ingredient.id}
+                  onDelete={() => handleDeleteIngredient(ingredient.id)}
+                />
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* 식재료 자동 입력 모달 */}
         <Modal
