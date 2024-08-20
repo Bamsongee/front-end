@@ -6,36 +6,16 @@ import RecipeItem from "../components/RecipeItem";
 
 function Save() {
     const [recipes, setRecipes] = useState({ 한식: [], 양식: [], 중식: [], 일식: [] });
-    const [userName, setUserName] = useState("");
     const [cookies] = useCookies(["accessToken"]);
 
-    const fetchUserInfo = useCallback(async () => {
-        try {
-            const response = await axios.get("https://ohmea-backend.store/mypage", {
-                headers: {
-                    Authorization: `${cookies.accessToken}`,
-                },
-            });
-
-            if (response.data.success) {
-                setUserName(response.data.data.username);
-            } else {
-                alert("유저 정보를 불러오는데 실패했습니다.");
-            }
-        } catch (error) {
-            console.error("유저 정보를 가져오는 중 오류 발생:", error);
-            alert("유저 정보를 가져오는 중 오류가 발생했습니다.");
-        }
-    }, [cookies.accessToken]);
-
-    const fetchRecipes = useCallback(async (category) => {
-        try {
-            const response = await axios.get(`https://ohmea-backend.store/like/filter?category=${category}`, {
-                headers: {
-                    Authorization: `${cookies.accessToken}`,
-                },
-            });
-
+    const fetchRecipes = useCallback(
+        async (category) => {
+            try {
+                const response = await axios.get(`https://ohmea-backend.store/like/filter?category=${category}`, {
+                    headers: {
+                        Authorization: `${cookies.accessToken}`,
+                    },
+                });
 
                 if (response.data.success) {
                     setRecipes((prev) => ({ ...prev, [category]: response.data.data }));
@@ -51,11 +31,10 @@ function Save() {
     );
 
     useEffect(() => {
-        fetchUserInfo();
         const categories = ["한식", "양식", "중식", "일식"];
 
-        categories.forEach(category => fetchRecipes(category));
-    }, [fetchUserInfo, fetchRecipes]);
+        categories.forEach((category) => fetchRecipes(category));
+    }, [fetchRecipes]);
     return (
         <>
             <div className="page">
@@ -68,9 +47,9 @@ function Save() {
                             </div>
                             <div className="Save-CategoryList">
                                 {recipes[category].length > 0 ? (
-                                    recipes[category].map(recipe => (
+                                    recipes[category].map((recipe) => (
                                         <div className="RecipeItemMargin" key={recipe.id}>
-                                            <RecipeItem 
+                                            <RecipeItem
                                                 id={recipe.id}
                                                 name={recipe.name}
                                                 imageUrl={recipe.imageUrl}
