@@ -8,7 +8,7 @@ import RecipeItem from "../components/RecipeItem";
 
 function Save() {
     const [recipes, setRecipes] = useState({ 한식: [], 양식: [], 중식: [], 일식: [] });
-    const [userName, setUserName] = useState(""); // 사용자 이름 상태 추가
+    const [userName, setUserName] = useState("");
     const [cookies] = useCookies(["accessToken"]);
 
     const fetchUserInfo = useCallback(async () => {
@@ -50,7 +50,7 @@ function Save() {
     }, [cookies.accessToken]);
 
     useEffect(() => {
-        fetchUserInfo(); // 사용자 정보 가져오기
+        fetchUserInfo();
         const categories = ["한식", "양식", "중식", "일식"];
         categories.forEach(category => fetchRecipes(category));
     }, [fetchUserInfo, fetchRecipes]);
