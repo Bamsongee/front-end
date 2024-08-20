@@ -9,7 +9,7 @@ import noReviewImg from "../img/noReviewImg.png";
 function Review() {
     const navigate = useNavigate();
     const [comments, setComments] = useState([]);
-    const [cookies] = useCookies(["accessToken"]);
+    const [cookies] = useCookies(["accessToken", "username"]);
 
     const fetchComments = useCallback(async () => {
         try {
@@ -44,7 +44,7 @@ function Review() {
     return (
         <div className="page">
             <div className="ReviewBox">
-                <div className="MyPageBoldTitle">나의 리뷰</div>
+                <div className="MyPageBoldTitle">{cookies.username}님의 리뷰</div>
                 {comments.length > 0 ? (
                     comments.map((comment) => (
                         <div key={comment.id} className="ReviewContainer">

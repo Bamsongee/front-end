@@ -28,14 +28,14 @@ function Save() {
         }
     }, [cookies.accessToken]);
 
-    const fetchRecipes = useCallback(async (category) => {
-        try {
-            const response = await axios.get(`https://ohmea-backend.store/like/filter?category=${category}`, {
-                headers: {
-                    Authorization: `${cookies.accessToken}`,
-                },
-            });
-
+    const fetchRecipes = useCallback(
+        async (category) => {
+            try {
+                const response = await axios.get(`https://ohmea-backend.store/like/filter?category=${category}`, {
+                    headers: {
+                        Authorization: `${cookies.accessToken}`,
+                    },
+                });
 
                 if (response.data.success) {
                     setRecipes((prev) => ({ ...prev, [category]: response.data.data }));
@@ -54,13 +54,13 @@ function Save() {
         fetchUserInfo();
         const categories = ["한식", "양식", "중식", "일식"];
 
-        categories.forEach(category => fetchRecipes(category));
+        categories.forEach((category) => fetchRecipes(category));
     }, [fetchUserInfo, fetchRecipes]);
     return (
         <>
             <div className="page">
                 <div className="SaveBox">
-                    <div className="MyPageBoldTitle">내가 찜한 레시피</div>
+                    <div className="MyPageBoldTitle">{userName}님이 찜한 레시피</div>
                     {Object.keys(recipes).map((category) => (
                         <div className="Save-CategoryContainer" key={category}>
                             <div className="Save-CategoryTitle">
@@ -68,9 +68,9 @@ function Save() {
                             </div>
                             <div className="Save-CategoryList">
                                 {recipes[category].length > 0 ? (
-                                    recipes[category].map(recipe => (
+                                    recipes[category].map((recipe) => (
                                         <div className="RecipeItemMargin" key={recipe.id}>
-                                            <RecipeItem 
+                                            <RecipeItem
                                                 id={recipe.id}
                                                 name={recipe.name}
                                                 imageUrl={recipe.imageUrl}

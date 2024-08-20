@@ -4,6 +4,7 @@ import "../css/Refrigerator.css";
 import Ingredient from "../components/Ingredient";
 import Modal from "react-modal";
 import ref3d from "../img/ref_3d.png";
+import { useCookies } from "react-cookie";
 
 function Refrigerator() {
     const [ingredients, setIngredients] = useState([]);
@@ -14,6 +15,7 @@ function Refrigerator() {
     const [ingredientName, setIngredientName] = useState("");
     const [responseMessage, setResponseMessage] = useState([]);
     const [showResponseModal, setShowResponseModal] = useState(false);
+    const [cookies] = useCookies(["accessToken", "username"]);
 
     const getCookie = (name) => {
         const cookieValue = document.cookie.match("(^|;)\\s*" + name + "\\s*=\\s*([^;]+)");
@@ -200,7 +202,7 @@ function Refrigerator() {
         <div className="page">
             <div className="ref_page">
                 <div className="ref_box">
-                    <div className="MyPageBoldTitle">나의 냉장고</div>
+                    <div className="MyPageBoldTitle">{cookies.username}님의 냉장고</div>
                     <div className="ref_button">
                         <div className="ref_button_1" onClick={openAddModal1}>
                             자동 추가
