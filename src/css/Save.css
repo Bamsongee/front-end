@@ -9,7 +9,7 @@
 }
 
 .DetailPage-title {
-    width: 100%;
+    width: 325px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -65,16 +65,17 @@
 
 .Save-NoItemContainer {
     display: flex;
-    justify-content: center; 
-    width: 100%; 
-    margin: 20px 0; 
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px;
+    height: 70%;
 }
 
 .Save-NoItem {
     font-size: 18px;
-    color: #777; 
+    color: #777;
 }
-
 
 .RecipeItemMargin {
     margin-right: 15px;
