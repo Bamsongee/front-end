@@ -276,7 +276,7 @@ function Main() {
 
                     <div className="Container">
                         <div className="ConTitle">
-                            <div className="ConTitleText">핫딜 특가🔥</div>
+                            <div className="ConTitleText">🔥핫딜 특가🔥</div>
                             <Link to="/products">
                                 <img className="GoToDetail" src={GoToImg} alt="GoToImg"></img>
                             </Link>
