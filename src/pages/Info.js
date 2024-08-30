@@ -16,7 +16,7 @@ function Main() {
     const [username, setUsername] = useState("");
     const [gender, setGender] = useState("");
     const [tempSkill, setTempSkill] = useState("");
-    const [tempBudget, setTempBudget] = useState(""); 
+    const [tempBudget, setTempBudget] = useState("");
     const [cookies] = useCookies(["accessToken"]);
     const navigate = useNavigate();
 
@@ -58,7 +58,7 @@ function Main() {
     }, [tempSkill]);
 
     const openBudgetModal = useCallback(() => {
-        setTempBudget(budget.replace(/,/g, ''));
+        setTempBudget(budget.replace(/,/g, ""));
         setIsBudgetModalOpen(true);
     }, [budget]);
 
@@ -70,7 +70,7 @@ function Main() {
     const handleSkillChange = useCallback((skill) => setTempSkill(skill), []);
 
     const handleBudgetChange = useCallback((event) => {
-        setTempBudget(event.target.value.replace(/,/g, ''));
+        setTempBudget(event.target.value.replace(/,/g, ""));
     }, []);
 
     const updateUserInfo = useCallback(async () => {
@@ -103,6 +103,7 @@ function Main() {
     return (
         <div className="page">
             <div className="info_page">
+                <div className="MyPageBoldTitle">{cookies.username}님의 정보 수정</div>
                 <div className="info_edit_box">
                     <div className="info_row">
                         <p className="info_title">닉네임</p>
@@ -130,7 +131,9 @@ function Main() {
                         <p className="info_notice">한끼 기준으로 입력해주세요!</p>
                     </div>
                     <div className="info_edit_button_container">
-                        <div className="info_edit_button" onClick={updateUserInfo}>수정 완료</div>
+                        <div className="info_edit_button" onClick={updateUserInfo}>
+                            수정 완료
+                        </div>
                     </div>
                 </div>
                 {/* 요리 실력 수정 모달 */}
@@ -222,7 +225,8 @@ function Main() {
                             className="modal_edit_budget"
                             value={tempBudget.toLocaleString()}
                             onChange={handleBudgetChange}
-                        /> 원
+                        />{" "}
+                        원
                     </div>
                     <div className="info_edit_button_container">
                         <div className="modal_info_edit_button" onClick={closeBudgetModal}>

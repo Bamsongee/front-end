@@ -4,7 +4,7 @@
     justify-content: flex-start;
     align-items: center;
     height: 100%;
-    padding-top: 50px;
+    min-height: 600px;
 }
 
 .info_row {
@@ -21,18 +21,17 @@
 }
 
 .info_edit_box {
-    margin-top: 15%;
+    margin-top: 10%;
 }
 
 .info_title {
-    
     font-size: 14px;
+    width: 90px;
 }
 
 .info_content {
     font-size: 18px;
     font-family: "Pretendard-Bold";
-    margin-left: 40px;
     flex-grow: 1;
 }
 
